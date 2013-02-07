@@ -2,7 +2,7 @@ This is a MATLAB implementation of the Perez sky model [1] that we've
 re-parameterized as a function of common camera parameters, as explained in 
 our IJCV 2010 paper [2].
 
-See the following website for more information"
+See the following website for more information:
 
 http://graphics.cs.cmu.edu/projects/sky/
 
@@ -43,11 +43,11 @@ coefficients (in 3 channels in xyY color space, as in [3]):
 
 [1]	R. Perez, R. Seals, and J. Michalsky, "All-weather model for sky 
 luminance distribution -- preliminary configuration and validation," Solar 
-Energy, vol. 50, no. 3, pp. 235?245, Mar. 1993.
+Energy, vol. 50, no. 3, pp. 235--245, Mar. 1993.
 
 [2]	J.-F. Lalonde, S. G. Narasimhan, and A. A. Efros, "What do the sun and 
 the sky tell us about the camera?," International Journal of Computer
-Vision, vol. 88, no. 1, pp. 24?51, May 2010.
+Vision, vol. 88, no. 1, pp. 24--51, May 2010.
 
 [3]	A. J. Preetham, P. Shirley, and B. Smits, "A practical analytic model 
 for daylight," presented at the Proceedings of ACM SIGGRAPH 1999, 1999.
