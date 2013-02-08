@@ -25,5 +25,5 @@ skySunFront = reconstructSkyFromFullModel(imgDims, skyParams, vh, f, phiCam, the
 
 % display results
 figure;
-subplot(1,2,1), imshow(xyY2rgb(skySunBehind)), title('Sun behind');
-subplot(1,2,2), imshow(xyY2rgb(skySunFront)), title('Sun in front');
+subplot(1,2,1), imshow(xyz2rgb(xyY2xyz(skySunBehind))), title('Sun behind');
+subplot(1,2,2), imshow(xyz2rgb(xyY2xyz(skySunFront))), title('Sun in front');
