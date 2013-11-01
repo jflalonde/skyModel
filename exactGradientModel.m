@@ -22,8 +22,7 @@ function lum = exactGradientModel(a, b, f, up, vp, vh)
 
 % convert to camera parameters
 thetac = pi/2+atan2(vh, f);
-fc = f;
-thetap = pixelZenithAngle(thetac, fc, up, vp);
+thetap = pixelZenithAngle(thetac, f, up, vp);
 
 % plug in Perez sky model
 lum = perezGradientModel(a, b, thetap);
