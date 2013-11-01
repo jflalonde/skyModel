@@ -7,13 +7,13 @@
 %  - f: camera focal length (in pixels)
 %  - up: x-coordinates of pixels in image
 %  - vp: y-coordinates of pixels in image
-%  - vh: horizon line (0 = center of image)
+%  - theta: camera zenith angle
 %
 % Output parameters:
 %  - lum: luminance map in image coordinates (same dimensions as up and vp)
 % 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function ratio = exactGradientModelRatio(a, b, f, up, vp, vh, lz)
+function ratio = exactGradientModelRatio(a, b, f, up, vp, theta, lz)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Copyright 2006-2009 Jean-Francois Lalonde
 % Carnegie Mellon University
@@ -21,4 +21,4 @@ function ratio = exactGradientModelRatio(a, b, f, up, vp, vh, lz)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-ratio = lz .* exactGradientModel(a, b, f, up, vp, vh) ./ perezGradientModel(a, b, 0);
+ratio = lz .* exactGradientModel(a, b, f, up, vp, theta) ./ perezGradientModel(a, b, 0);

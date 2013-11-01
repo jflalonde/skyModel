@@ -15,7 +15,7 @@
 %  - reconstructedImg: rendered sky (in the xyY color space)
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function reconstructedImg = reconstructSkyFromFullModel(imgDims, params, vh, f, phiCam, thetaSun, phiSun)
+function reconstructedImg = reconstructSkyFromFullModel(imgDims, params, f, thetaCam, phiCam, thetaSun, phiSun)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Copyright 2006-2009 Jean-Francois Lalonde
 % Carnegie Mellon University
@@ -30,14 +30,16 @@ nbChannels = imgDims(3);
 upVec = (uRange - imgWidth/2) - 0.5;
 vpVec = (imgHeight/2 - vRange) + 0.5;
 
-vhImg = floor(imgHeight/2 - vh + 0.5);
+% vhImg = floor(imgHeight/2 - vh + 0.5);
 
 % synthesize each channel
 reconstructedImg = zeros(imgHeight, imgWidth, nbChannels);
 for ch = 1:nbChannels
     reconstructedImg(:,:,ch) = exactSkyModelRatio(params(1,ch), params(2,ch), params(3,ch), params(4,ch), params(5,ch), ...
-        f, upVec, vpVec, vh, params(6,ch), phiCam, phiSun, thetaSun);
+        f, upVec, vpVec, params(6,ch), thetaCam, phiCam, phiSun, thetaSun);
 end
+
+vhImg = floor(imgHeight/2 - tan(thetaSun-pi/2).*f+0.5);
 
 % black out what's below the horizon
 reconstructedImg(vhImg:end,:,:) = 0;
